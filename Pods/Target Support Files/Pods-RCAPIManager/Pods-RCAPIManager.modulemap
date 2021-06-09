@@ -1,0 +1,6 @@
+module Pods_RCAPIManager {
+  umbrella header "Pods-RCAPIManager-umbrella.h"
+
+  export *
+  module * { export * }
+}

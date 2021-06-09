@@ -7,13 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E7BFDD40A0C2BBB1B497DC4 /* libPods-RCAPIManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4FE7D794CA0B0F4131BE96 /* libPods-RCAPIManager.a */; };
+		1C857CE4267097C5002B7769 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C857CE3267097C5002B7769 /* ActivityManager.swift */; };
 		1CA21D312666628D0000BDC5 /* RCAPIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CA21D2F2666628D0000BDC5 /* RCAPIManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CA21D39266662B60000BDC5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA21D38266662B60000BDC5 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C857CE3267097C5002B7769 /* ActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
+		1C857D332670A141002B7769 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C857D342670A141002B7769 /* MarqueeLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarqueeLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C857D352670A141002B7769 /* NotificationBannerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NotificationBannerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C857D362670A141002B7769 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C857D372670A141002B7769 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C857D442670A18F002B7769 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C857D462670A18F002B7769 /* MarqueeLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarqueeLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C857D482670A18F002B7769 /* NotificationBannerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NotificationBannerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C857D4A2670A18F002B7769 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C857D4C2670A18F002B7769 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA21D2C2666628D0000BDC5 /* RCAPIManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RCAPIManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA21D2F2666628D0000BDC5 /* RCAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCAPIManager.h; sourceTree = "<group>"; };
 		1CA21D302666628D0000BDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CA21D38266662B60000BDC5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		3E4FE7D794CA0B0F4131BE96 /* libPods-RCAPIManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RCAPIManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B668C7BD6EE881DAC19F6734 /* Pods-RCAPIManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCAPIManager.release.xcconfig"; path = "Target Support Files/Pods-RCAPIManager/Pods-RCAPIManager.release.xcconfig"; sourceTree = "<group>"; };
+		F171BDDE51D7C58796EDCEE8 /* Pods-RCAPIManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCAPIManager.debug.xcconfig"; path = "Target Support Files/Pods-RCAPIManager/Pods-RCAPIManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,17 +39,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E7BFDD40A0C2BBB1B497DC4 /* libPods-RCAPIManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1106B354B4C1F38CF3D5F067 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C857D442670A18F002B7769 /* Alamofire.framework */,
+				1C857D462670A18F002B7769 /* MarqueeLabel.framework */,
+				1C857D482670A18F002B7769 /* NotificationBannerSwift.framework */,
+				1C857D4A2670A18F002B7769 /* NVActivityIndicatorView.framework */,
+				1C857D4C2670A18F002B7769 /* SnapKit.framework */,
+				1C857D332670A141002B7769 /* Alamofire.framework */,
+				1C857D342670A141002B7769 /* MarqueeLabel.framework */,
+				1C857D352670A141002B7769 /* NotificationBannerSwift.framework */,
+				1C857D362670A141002B7769 /* NVActivityIndicatorView.framework */,
+				1C857D372670A141002B7769 /* SnapKit.framework */,
+				3E4FE7D794CA0B0F4131BE96 /* libPods-RCAPIManager.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1CA21D222666628D0000BDC5 = {
 			isa = PBXGroup;
 			children = (
 				1CA21D2E2666628D0000BDC5 /* RCAPIManager */,
 				1CA21D2D2666628D0000BDC5 /* Products */,
+				CB4409BFF6E2A777590CBB5F /* Pods */,
+				1106B354B4C1F38CF3D5F067 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,9 +86,20 @@
 			isa = PBXGroup;
 			children = (
 				1CA21D2F2666628D0000BDC5 /* RCAPIManager.h */,
+				1CA21D38266662B60000BDC5 /* APIManager.swift */,
+				1C857CE3267097C5002B7769 /* ActivityManager.swift */,
 				1CA21D302666628D0000BDC5 /* Info.plist */,
 			);
 			path = RCAPIManager;
+			sourceTree = "<group>";
+		};
+		CB4409BFF6E2A777590CBB5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F171BDDE51D7C58796EDCEE8 /* Pods-RCAPIManager.debug.xcconfig */,
+				B668C7BD6EE881DAC19F6734 /* Pods-RCAPIManager.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,6 +120,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CA21D342666628D0000BDC5 /* Build configuration list for PBXNativeTarget "RCAPIManager" */;
 			buildPhases = (
+				872B0765952B691270CDDEE8 /* [CP] Check Pods Manifest.lock */,
 				1CA21D272666628D0000BDC5 /* Headers */,
 				1CA21D282666628D0000BDC5 /* Sources */,
 				1CA21D292666628D0000BDC5 /* Frameworks */,
@@ -94,6 +145,7 @@
 				TargetAttributes = {
 					1CA21D2B2666628D0000BDC5 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -125,11 +177,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		872B0765952B691270CDDEE8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RCAPIManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1CA21D282666628D0000BDC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C857CE4267097C5002B7769 /* ActivityManager.swift in Sources */,
+				1CA21D39266662B60000BDC5 /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +339,9 @@
 		};
 		1CA21D352666628D0000BDC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F171BDDE51D7C58796EDCEE8 /* Pods-RCAPIManager.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -268,6 +349,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = RCAPIManager/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -276,6 +358,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rcapimanager.RCAPIManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -283,7 +367,9 @@
 		};
 		1CA21D362666628D0000BDC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B668C7BD6EE881DAC19F6734 /* Pods-RCAPIManager.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -291,6 +377,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = RCAPIManager/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,6 +386,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rcapimanager.RCAPIManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
