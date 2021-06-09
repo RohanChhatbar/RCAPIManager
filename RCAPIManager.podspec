@@ -82,7 +82,7 @@ spec.swift_version = '4.2'
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/RohanChhatbar/RCAPIManager/RCAPIManager.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/RohanChhatbar/RCAPIManager.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
