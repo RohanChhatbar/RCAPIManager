@@ -93,7 +93,7 @@ spec.swift_version = '4.2'
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = 'RCAPIManager/*.swift'
+  spec.source_files  = 'RCAPIManager/*.{swift, h}'
   # spec.exclude_files = "Classes/Exclude"
 
 
