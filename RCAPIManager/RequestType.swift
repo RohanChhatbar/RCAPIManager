@@ -49,5 +49,15 @@ public func asURLReqeust(type:RequestType) -> URLRequest? {
     
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     
+    RCPrint("\n-----------------------------\nREQUEST:\n-----------------------------\n", url.absoluteString)
+    
+    if let header = type.headers {
+        RCPrint("\n-----------------------------\nHEADERS:\n-----------------------------\n", header)
+    }
+    
+    if let params = type.parameters {
+        RCPrint("\n-----------------------------\nPARAMETER:\n-----------------------------\n",params)
+    }
+    
     return request
 }
