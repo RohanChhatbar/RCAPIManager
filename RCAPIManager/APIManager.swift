@@ -98,8 +98,8 @@ public class APIManager {
         }
     }
     
-    public func requestJSON<T: Codable>(model: T.Type,progressShow:Bool = true,convertible: URLRequestConvertible,isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in },
-                                 success: @escaping (_ value: T) -> Void) {
+    public func requestJSON<T: Codable>(model: T.Type,progressShow:Bool = true,request: RequestType,isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in },
+                                        success: @escaping (_ value: T) -> Void) {
         if Connectivity.isConnectedToInternet(){
             
             if progressShow {
@@ -107,10 +107,26 @@ public class APIManager {
             }
             URLCache.shared.removeAllCachedResponses()
             
-            sessionManager.request(convertible)
-                .responseData { (dataResponse) in
-                    self.handleReposneWith(dataResponse, model: model, progressShow: progressShow, isFailureMessageDisplay: isFailureMessageDisplay, failure: failure, success: success)
+            if let convertible = asURLReqeust(request: request) {
+                
+                RCPrint("\n-----------------------------\nREQUEST:\n-----------------------------\n", request.url)
+                
+                RCPrint("\n-----------------------------\nMETHOD:\n-----------------------------\n", request.method.rawValue)
+                
+                if let header = request.headers {
+                    RCPrint("\n-----------------------------\nHEADERS:\n-----------------------------\n", header)
                 }
+                
+                if let params = request.parameters {
+                    RCPrint("\n-----------------------------\nPARAMETER:\n-----------------------------\n",params)
+                }
+                
+                sessionManager.request(convertible)
+                    .responseData { (dataResponse) in
+                        self.handleReposneWith(dataResponse, model: model, progressShow: progressShow, isFailureMessageDisplay: isFailureMessageDisplay, failure: failure, success: success)
+                    }
+            }
+            
             
         } else {
             noInternetConnectonMessage()
@@ -119,17 +135,30 @@ public class APIManager {
     }
     
     
-    public func uploadWithImage<T: Codable>(model: T.Type,progressShow:Bool = true,_ url: String,keyName:[String],imageName:[String], images: [UIImage?], params: [String : Any], header: [String:String],isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in }, success: @escaping (_ value: T) -> Void) {
+    public func uploadWithImage<T: Codable>(model: T.Type,progressShow:Bool = true,request: RequestType,keyName:[String],imageName:[String], images: [UIImage?],isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in }, success: @escaping (_ value: T) -> Void) {
         
         if Connectivity.isConnectedToInternet(){
             if progressShow {
                 showRandomProgress(isShow: true)
             }
             
-            let httpHeaders = HTTPHeaders(header)
+            RCPrint("\n-----------------------------\nREQUEST:\n-----------------------------\n", request.url)
+            
+            RCPrint("\n-----------------------------\nMETHOD:\n-----------------------------\n", request.method.rawValue)
+            
+            if let header = request.headers {
+                RCPrint("\n-----------------------------\nHEADERS:\n-----------------------------\n", header)
+            }
+            
+            if let params = request.parameters {
+                RCPrint("\n-----------------------------\nPARAMETER:\n-----------------------------\n",params)
+            }
+            let httpHeaders = HTTPHeaders(request.headers ?? [String:String]())
             _ = AF.upload(multipartFormData: { multiPart in
-                for p in params {
-                    multiPart.append("\(p.value)".data(using: String.Encoding.utf8)!, withName: p.key)
+                if let params = request.parameters {
+                    for p in params {
+                        multiPart.append("\(p.value)".data(using: String.Encoding.utf8)!, withName: p.key)
+                    }
                 }
                 
                 let images = images
@@ -146,7 +175,7 @@ public class APIManager {
                 }
                 
                 
-            }, to: url, method: .post, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
+            }, to: request.url, method: request.method, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
                 RCPrint("Upload Progress: \(progress.fractionCompleted)")
             })
             .responseData { (dataResponse) in
@@ -158,18 +187,34 @@ public class APIManager {
         
     }
     
-    public func uploadWithURL<T: Codable>(model: T.Type,progressShow:Bool = true,_ url: String,keyName:[String],fileName:[String], fileurls: [URL?], params: [String : Any], header: [String:String],isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in }, success: @escaping (_ value: T) -> Void) {
+    public func uploadWithURL<T: Codable>(model: T.Type,progressShow:Bool = true,request: RequestType,keyName:[String],fileName:[String], fileurls: [URL?],isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in }, success: @escaping (_ value: T) -> Void) {
         
         if Connectivity.isConnectedToInternet(){
             if progressShow {
                 showRandomProgress(isShow: true)
             }
             
-            let httpHeaders = HTTPHeaders(header)
+            RCPrint("\n-----------------------------\nREQUEST:\n-----------------------------\n", request.url)
+            
+            RCPrint("\n-----------------------------\nMETHOD:\n-----------------------------\n", request.method.rawValue)
+            
+            if let header = request.headers {
+                RCPrint("\n-----------------------------\nHEADERS:\n-----------------------------\n", header)
+            }
+            
+            if let params = request.parameters {
+                RCPrint("\n-----------------------------\nPARAMETER:\n-----------------------------\n",params)
+            }
+            
+            let httpHeaders = HTTPHeaders(request.headers ?? [String:String]())
             _ = AF.upload(multipartFormData: { multiPart in
-                for p in params {
-                    multiPart.append("\(p.value)".data(using: String.Encoding.utf8)!, withName: p.key)
+                
+                if let params = request.parameters {
+                    for p in params {
+                        multiPart.append("\(p.value)".data(using: String.Encoding.utf8)!, withName: p.key)
+                    }
                 }
+                
                 
                 let fileurls = fileurls
                 for (index,url) in fileurls.enumerated() {
@@ -185,7 +230,7 @@ public class APIManager {
                     
                 }
                 
-            }, to: url, method: .post, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
+            }, to: request.url, method: request.method, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
                 RCPrint("Upload Progress: \(progress.fractionCompleted)")
             })
             .responseData { (dataResponse) in
@@ -199,9 +244,9 @@ public class APIManager {
     
     public func directSignout(completion:()->()) {
         completion()
-//        UIApplication.shared.applicationIconBadgeNumber = 0
-//        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-//        self.setLoginasRoot()
+        //        UIApplication.shared.applicationIconBadgeNumber = 0
+        //        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        //        self.setLoginasRoot()
     }
     
     public func showMesaageBar(title: String? = nil, message : String? = nil, bstyle : BannerStyle){

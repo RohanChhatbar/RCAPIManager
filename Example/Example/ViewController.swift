@@ -12,23 +12,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.postRequest()
         self.getRequest()
+        self.postRequest()
     }
     
     func getRequest() {
         
         let requestType = RequestType(url: "https://reqres.in/api/users?page=1", method: .get)
         
-        if let request = asURLReqeust(type: requestType) {
+        APIManager.shared.requestJSON(model: UserListDataModel.self, request: requestType) { (responseModel) in
             
-            APIManager.shared.requestJSON(model: UserListDataModel.self, convertible: request) { (responseModel) in
-                if let users = responseModel.data {
-                    _ = users.map({print("User email ",$0.email ?? "")})
-                }
-                
-                print("Total Page count ",responseModel.total_pages ?? 0)
+            if let users = responseModel.data {
+                _ = users.map({print("User email ",$0.email ?? "")})
             }
+            
+            print("Total Page count ",responseModel.total_pages ?? 0)
+            
         }
     }
     
@@ -41,11 +40,9 @@ class ViewController: UIViewController {
         
         let requestType = RequestType(url: "https://reqres.in/api/users", method: .post, parameters: params)
         
-        if let request = asURLReqeust(type: requestType) {
+        APIManager.shared.requestJSON(model: UserModel.self, request: requestType) { (responseModel) in
             
-            APIManager.shared.requestJSON(model: UserModel.self, convertible: request) { (responseModel) in
-                print(responseModel.name)
-            }
+            print(responseModel.name)
         }
     }
     

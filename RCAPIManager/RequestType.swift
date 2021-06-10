@@ -26,38 +26,29 @@ public struct RequestType {
     }
 }
 
-public func asURLReqeust(type:RequestType) -> URLRequest? {
-    let url = URL(string: type.url)!
-    var request = URLRequest(url: url)
-    request.httpMethod = type.method.rawValue
+public func asURLReqeust(request:RequestType) -> URLRequest? {
+    let url = URL(string: request.url)!
+    var urlRequest = URLRequest(url: url)
+    urlRequest.httpMethod = request.method.rawValue
     
-    if let parameters = type.parameters {
+    if let parameters = request.parameters {
         
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
             RCPrint("Error in Paramter Serialization ",error.localizedDescription)
             return nil
         }
     }
     
-    if let headers = type.headers {
+    if let headers = request.headers {
         for header in headers {
-            request.addValue(header.value, forHTTPHeaderField: header.key)
+            urlRequest.addValue(header.value, forHTTPHeaderField: header.key)
         }
     }
     
-    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
     
-    RCPrint("\n-----------------------------\nREQUEST:\n-----------------------------\n", url.absoluteString)
-    
-    if let header = type.headers {
-        RCPrint("\n-----------------------------\nHEADERS:\n-----------------------------\n", header)
-    }
-    
-    if let params = type.parameters {
-        RCPrint("\n-----------------------------\nPARAMETER:\n-----------------------------\n",params)
-    }
-    
-    return request
+    return urlRequest
 }
+
