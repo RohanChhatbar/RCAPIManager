@@ -119,7 +119,7 @@ public class APIManager {
     }
     
     
-    public func uploadImage<T: Codable>(model: T.Type,progressShow:Bool = true,_ url: String,isFullURL:Bool = false,keyName:[String],imageName:[String], images: [UIImage?], params: [String : Any], header: [String:String],isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in }, success: @escaping (_ value: T) -> Void) {
+    public func uploadWithImage<T: Codable>(model: T.Type,progressShow:Bool = true,_ url: String,keyName:[String],imageName:[String], images: [UIImage?], params: [String : Any], header: [String:String],isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in }, success: @escaping (_ value: T) -> Void) {
         
         if Connectivity.isConnectedToInternet(){
             if progressShow {
@@ -146,7 +146,7 @@ public class APIManager {
                 }
                 
                 
-            }, to: isFullURL ? url : baseURL + url, method: .post, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
+            }, to: url, method: .post, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
                 RCPrint("Upload Progress: \(progress.fractionCompleted)")
             })
             .responseData { (dataResponse) in
@@ -158,7 +158,7 @@ public class APIManager {
         
     }
     
-    public func uploadDocument<T: Codable>(model: T.Type,progressShow:Bool = true,_ url: String,isFullURL:Bool = false,keyName:String,documentName:String, doc_url: URL?, params: [String : Any], header: [String:String],isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in }, success: @escaping (_ value: T) -> Void) {
+    public func uploadWithURL<T: Codable>(model: T.Type,progressShow:Bool = true,_ url: String,keyName:[String],fileName:[String], fileurls: [URL?], params: [String : Any], header: [String:String],isFailureMessageDisplay : Bool = true,failure: @escaping (String) -> () = {_ in }, success: @escaping (_ value: T) -> Void) {
         
         if Connectivity.isConnectedToInternet(){
             if progressShow {
@@ -171,18 +171,21 @@ public class APIManager {
                     multiPart.append("\(p.value)".data(using: String.Encoding.utf8)!, withName: p.key)
                 }
                 
-                if let newURL = doc_url {
-                    RCPrint("---------------- \(newURL)")
-                    do{
-                        let docData = try Data(contentsOf: newURL)
-                        multiPart.append(docData, withName: keyName, fileName: documentName, mimeType: "application/pdf")
-                    }catch let err{
-                        RCPrint("Error on covert file: \(err.localizedDescription)")
-                        self.showMesaageBar(message: err.localizedDescription, bstyle: .danger)
+                let fileurls = fileurls
+                for (index,url) in fileurls.enumerated() {
+                    if let newURL = url {
+                        do{
+                            let docData = try Data(contentsOf: newURL)
+                            multiPart.append(docData, withName: keyName[index], fileName: fileName[index], mimeType: newURL.mimeType())
+                        }catch let err{
+                            RCPrint("Error on covert file: \(err.localizedDescription)")
+                            self.showMesaageBar(message: err.localizedDescription, bstyle: .danger)
+                        }
                     }
+                    
                 }
                 
-            }, to: isFullURL ? url : baseURL + url, method: .post, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
+            }, to: url, method: .post, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
                 RCPrint("Upload Progress: \(progress.fractionCompleted)")
             })
             .responseData { (dataResponse) in

@@ -11,6 +11,7 @@
 		1C857CE4267097C5002B7769 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C857CE3267097C5002B7769 /* ActivityManager.swift */; };
 		1CA21D312666628D0000BDC5 /* RCAPIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CA21D2F2666628D0000BDC5 /* RCAPIManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CA21D39266662B60000BDC5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA21D38266662B60000BDC5 /* APIManager.swift */; };
+		1CA8997C2671F57A00516080 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA8997B2671F57A00516080 /* MimeType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		1CA21D2F2666628D0000BDC5 /* RCAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCAPIManager.h; sourceTree = "<group>"; };
 		1CA21D302666628D0000BDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA21D38266662B60000BDC5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		1CA8997B2671F57A00516080 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
 		3E4FE7D794CA0B0F4131BE96 /* libPods-RCAPIManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RCAPIManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B668C7BD6EE881DAC19F6734 /* Pods-RCAPIManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCAPIManager.release.xcconfig"; path = "Target Support Files/Pods-RCAPIManager/Pods-RCAPIManager.release.xcconfig"; sourceTree = "<group>"; };
 		F171BDDE51D7C58796EDCEE8 /* Pods-RCAPIManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCAPIManager.debug.xcconfig"; path = "Target Support Files/Pods-RCAPIManager/Pods-RCAPIManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				1CA21D2F2666628D0000BDC5 /* RCAPIManager.h */,
 				1CA21D38266662B60000BDC5 /* APIManager.swift */,
+				1CA8997B2671F57A00516080 /* MimeType.swift */,
 				1C857CE3267097C5002B7769 /* ActivityManager.swift */,
 				1CA21D302666628D0000BDC5 /* Info.plist */,
 			);
@@ -209,6 +212,7 @@
 			files = (
 				1C857CE4267097C5002B7769 /* ActivityManager.swift in Sources */,
 				1CA21D39266662B60000BDC5 /* APIManager.swift in Sources */,
+				1CA8997C2671F57A00516080 /* MimeType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
