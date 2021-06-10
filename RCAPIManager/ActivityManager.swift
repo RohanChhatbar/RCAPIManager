@@ -29,13 +29,16 @@ public class ActivityIndicatorManager {
     }
     
     public func startAnimating() {
-        if actvityView != nil {
-            actvityView?.startAnimating()
-            UIWindow.key?.isUserInteractionEnabled = false
-            UIWindow.key?.bringSubviewToFront(actvityView!)
-        } else {
-            bindLoader()
-            self.startAnimating()
+        DispatchQueue.main.async {
+            if self.actvityView != nil {
+                self.actvityView?.startAnimating()
+                UIWindow.key?.isUserInteractionEnabled = false
+                UIWindow.key?.bringSubviewToFront(self.actvityView!)
+            } else {
+                
+                self.bindLoader()
+                self.startAnimating()
+            }
         }
     }
     
