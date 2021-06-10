@@ -7,14 +7,14 @@ PODS:
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
-  - RCAPIManager (0.0.1):
+  - RCAPIManager (0.0.2):
     - Alamofire
     - NotificationBannerSwift
     - NVActivityIndicatorView
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - RCAPIManager
+  - RCAPIManager (~> 0.0.2)
 
 SPEC REPOS:
   trunk:
@@ -30,9 +30,9 @@ SPEC CHECKSUMS:
   MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
-  RCAPIManager: 4f45e2066d797bc344cbeb9c6dc837b10bdeefbe
+  RCAPIManager: 9f73076b7b8e1dea05745c34e24db93e8aa81367
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: ff26a6298253dd528e5e60e7a96f80cee4cc80f4
+PODFILE CHECKSUM: f37beddaf643c2303feefd3ebb237988cdac034f
 
 COCOAPODS: 1.10.1

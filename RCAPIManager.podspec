@@ -9,13 +9,13 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "RCAPIManager"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "APIManager for IOS."
   spec.description  = "APIManger Class for IOS With Alamofire"
   spec.homepage     = "https://github.com/RohanChhatbar/RCAPIManager"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author             = { "Rohan Chhatbar" => "rohanchhatbar1993@gmail.com" }
-  spec.social_media_url   = "https://www.linkedin.com/in/rohan-chhatbar-913a4912a"
+  spec.social_media_url   = "https://www.linkedin.com/in/rohan-chhatbar-913a4912a/"
   spec.swift_version = '4.2'
   spec.platform     = :ios
   spec.ios.deployment_target = "10.0"
