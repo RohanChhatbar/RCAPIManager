@@ -50,6 +50,39 @@ APIManager.shared.requestJSON(model: UserModel.self, request: requestType) { (re
      print(responseModel.name)
 }
 ```
+### Debuger Log
+```bash
+-----------------------------
+REQUEST:
+-----------------------------
+ https://reqres.in/api/users
+
+-----------------------------
+METHOD:
+-----------------------------
+ POST
+
+-----------------------------
+PARAMETER:
+-----------------------------
+ ["job": "IOS Developer", "name": "Rohan"]
+
+-----------------------------
+STATUSCODE:
+-----------------------------
+ 201
+
+-----------------------------
+RESPONSE:
+-----------------------------
+ {
+    createdAt = "2021-06-11T06:01:27.888Z",
+    id = 14,
+    job = "IOS Developer",
+    name = Rohan
+}
+
+```
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
