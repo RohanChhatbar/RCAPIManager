@@ -50,7 +50,7 @@ APIManager.shared.requestJSON(model: UserModel.self, request: requestType) { (re
      print(responseModel.name)
 }
 ```
-### Debuger Log
+### Xcode Debuger Log
 ```bash
 -----------------------------
 REQUEST:
