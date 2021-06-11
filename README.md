@@ -15,7 +15,7 @@ RCAPIManager is a wrapper around Alamofire in Swift to simplify HTTP requests.
 
 Check out [RCAPIManager](https://cocoapods.org/pods/RCAPIManager) on cocoapods.org.
 
-To use RCAPIMANAGER in your project add the following 'Podfile' to your project
+To use RCAPIManager in your project add the following 'Podfile' to your project
 
 ```bash
 source 'https://github.com/RohanChhatbar/RCAPIManager.git'
@@ -24,45 +24,32 @@ use_frameworks!
 
 pod 'RCAPIMANAGER', '~> 0.0.2'
 ```
-
 ## Usage
-Check example directory in project
-### GET Request
-
+You can check example folder for Usage
+### Get Request
 ```
-if let request = try? URLRequest(url: "https://reqres.in/api/users?page=1", method: .get) {
-
-  APIManager.shared.requestJSON(model: UserListDataModel.self, convertible: request) { (responseModel) in
-
-//Here Return UserListDataModel
-                
+let requestType = RequestType(url: "https://reqres.in/api/users?page=1", method: .get)
+        
+ APIManager.shared.requestJSON(model: UserListDataModel.self, request: requestType) { (responseModel) in
+            
        if let users = responseModel.data {
-           _ = users.map({print("User email ",$0.email ?? "")})
+            _ = users.map({print("User email ",$0.email ?? "")})
        }
-                
+            
        print("Total Page count ",responseModel.total_pages ?? 0)
-   }
-}
+            
+ }
 ```
-
-### POST Request
-
+### Post Request
 ```
-let params = [
-    "name":"Rohan",
-    "job":"IOS Developer"
-]
-
+let params = ["name":"Rohan","job":"IOS Developer"]
+        
 let requestType = RequestType(url: "https://reqres.in/api/users", method: .post, parameters: params)
         
-if let request = asURLReqeust(type: requestType) {
-            
-      APIManager.shared.requestJSON(model: UserModel.self, convertible: request) { (responseModel) in
-           print(responseModel.name)
-      }
+APIManager.shared.requestJSON(model: UserModel.self, request: requestType) { (responseModel) in
+     print(responseModel.name)
 }
 ```
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
